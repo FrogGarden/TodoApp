@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">TodoApp</string>
+    <string name="app_name">내가할일</string>
+
+    <string name="create_task">할일 작성+</string>
+    <string name="noTitle">해야 할 일</string>
+    <string name="explanation">설명</string>
+    <string name="noDate">날짜</string>
+    <string name="cancel">취소</string>
+    <string name="create">등록</string>
+    <string name="doneDelete">끝난일 삭제</string>
 </resources>
