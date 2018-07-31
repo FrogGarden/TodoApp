@@ -34,7 +34,6 @@ class MainAdapter(context: Context, items: List<Todo>) : RecyclerView.Adapter<Ma
 
         holder.title.text = item.title
         holder.date.text = item.date.toString()
-        holder.id.text = item.id.toString()
 
         if (item.done!!) {
             holder.todo.setBackgroundColor(context.resources.getColor(R.color.isDone))
@@ -71,7 +70,6 @@ class MainAdapter(context: Context, items: List<Todo>) : RecyclerView.Adapter<Ma
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         val title = itemView.findViewById<TextView>(R.id.todoTitle)
         val date = itemView.findViewById<TextView>(R.id.todoDate)
-        val id = itemView.findViewById<TextView>(R.id.todoId)
         val todo = itemView.findViewById<LinearLayout>(R.id.todo)
         val done = itemView.findViewById<CheckBox>(R.id.done)
 

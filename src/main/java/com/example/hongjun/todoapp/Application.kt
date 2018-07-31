@@ -5,9 +5,6 @@ import android.arch.persistence.room.Room
 
 class Application : Application(){
 
-
-
-
     companion object {
         private lateinit var INSTANCE : Application
 
@@ -19,7 +16,6 @@ class Application : Application(){
     override fun onCreate() {
         super.onCreate()
         INSTANCE = this
-
         appDatabase = Room.databaseBuilder(this, AppDatabase::class.java, "todo.-db")
                 .fallbackToDestructiveMigration()
                 .allowMainThreadQueries().build()
