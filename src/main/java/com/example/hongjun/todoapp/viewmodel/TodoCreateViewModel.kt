@@ -2,12 +2,10 @@ package com.example.hongjun.todoapp.viewmodel
 
 import android.app.Activity
 import android.arch.lifecycle.ViewModel
+import com.example.hongjun.todoapp.Application.Companion.todoComponent
 import com.example.hongjun.todoapp.R
-import com.example.hongjun.todoapp.component.DaggerTodoComponent
-import com.example.hongjun.todoapp.component.TodoComponent
 import com.example.hongjun.todoapp.dto.Todo
 import com.example.hongjun.todoapp.model.TodoDaoImpl
-import com.example.hongjun.todoapp.module.TodoModule
 import kotlinx.android.synthetic.main.activity_todo_create.*
 import javax.inject.Inject
 
@@ -19,12 +17,12 @@ class TodoCreateViewModel(activity: Activity) : ViewModel() {
     @Inject
     lateinit var todo : Todo
 
-    var component : TodoComponent = DaggerTodoComponent.builder()
-            .todoModule(TodoModule())
-            .build()
+    fun inject(){
+        todoComponent.inject(this)
+    }
 
     fun selectDate(){
-        activity
+
     }
 
     fun cancel(){
@@ -32,8 +30,6 @@ class TodoCreateViewModel(activity: Activity) : ViewModel() {
     }
 
     fun createTodo(){
-        component.inject(this)
-
         if(activity.todoTitle.text.isEmpty()){
             todo.title = activity.resources.getString(R.string.noTitle)
         }else{
@@ -45,6 +41,7 @@ class TodoCreateViewModel(activity: Activity) : ViewModel() {
         todoDaoImpl.createTodo(todo)
 
         activity.finish()
+
     }
 
 

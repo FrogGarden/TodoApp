@@ -1,5 +1,6 @@
 package com.example.hongjun.todoapp.viewmodel
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.arch.lifecycle.ViewModel
 import android.content.Intent
@@ -8,6 +9,7 @@ import android.view.View
 import com.example.hongjun.plantodo.view.main.MainAdapter
 import com.example.hongjun.todoapp.Application
 import com.example.hongjun.todoapp.R
+import com.example.hongjun.todoapp.dto.Todo
 import com.example.hongjun.todoapp.model.TodoDaoImpl
 import com.example.hongjun.todoapp.view.TodoCreateActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,7 +24,7 @@ class MainViewModel(activity: Activity) : ViewModel() {
                 startActivity(activity, Intent(activity, TodoCreateActivity::class.java), null)
             }
             R.id.deleteTodo ->{
-                Application.appDatabase.todoDao().delete(true)
+                todoDaoImpl.deleteDoneTodo()
                 setAdapter()
 
             }
@@ -33,6 +35,7 @@ class MainViewModel(activity: Activity) : ViewModel() {
     fun setAdapter(){
         activity.todoList.adapter = MainAdapter(activity, todoDaoImpl.findAllTodo())
     }
+
 
 
 

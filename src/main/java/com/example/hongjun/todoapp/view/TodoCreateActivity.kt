@@ -10,12 +10,14 @@ import com.example.hongjun.todoapp.viewmodel.TodoCreateViewModel
 
 open class TodoCreateActivity : AppCompatActivity(){
     private lateinit var binding : ActivityTodoCreateBinding
+    private var todoCreateViewModel = TodoCreateViewModel(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_todo_create)
-        binding.viewModel = TodoCreateViewModel(this)
+        todoCreateViewModel.inject()
+        binding.viewModel = todoCreateViewModel
 
 
 

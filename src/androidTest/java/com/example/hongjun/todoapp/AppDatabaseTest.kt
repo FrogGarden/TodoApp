@@ -1,21 +1,13 @@
 package com.example.hongjun.todoapp
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.Observer
-import android.icu.util.TimeUnit
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
-import android.test.ActivityInstrumentationTestCase2
-import android.test.ActivityTestCase
-import android.util.Log
 import com.example.hongjun.todoapp.dao.TodoDao
 import com.example.hongjun.todoapp.dto.Todo
-import org.junit.After
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.util.concurrent.CountDownLatch
 
 @RunWith(AndroidJUnit4::class)
 class AppDatabaseTest {

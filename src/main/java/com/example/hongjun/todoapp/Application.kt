@@ -1,27 +1,46 @@
 package com.example.hongjun.todoapp
 
 import android.app.Application
-import android.arch.persistence.room.Room
+import com.example.hongjun.todoapp.component.AppComponent
+import com.example.hongjun.todoapp.component.DaggerAppComponent
+import com.example.hongjun.todoapp.component.DaggerTodoComponent
+import com.example.hongjun.todoapp.component.TodoComponent
+import com.example.hongjun.todoapp.module.AppModule
+import com.example.hongjun.todoapp.module.TodoModule
 
 class Application : Application(){
+
 
     companion object {
         private lateinit var INSTANCE : Application
 
         fun getInstance() = INSTANCE
 
-        lateinit var appDatabase: AppDatabase
+        var todoComponent : TodoComponent = DaggerTodoComponent.builder()
+                .todoModule(TodoModule())
+                .build()
+
+
+
+        lateinit var appComponent : AppComponent
+        //lateinit var appDatabase : AppDatabase
+
+        fun app() : com.example.hongjun.todoapp.Application{
+            return com.example.hongjun.todoapp.Application()
+        }
+
+
+
     }
 
     override fun onCreate() {
         super.onCreate()
         INSTANCE = this
-        appDatabase = Room.databaseBuilder(this, AppDatabase::class.java, "todo.-db")
-                .fallbackToDestructiveMigration()
-                .allowMainThreadQueries().build()
 
-
-
-
+        appComponent = DaggerAppComponent.builder()
+                .appModule(AppModule(applicationContext))
+                .build()
     }
+
+
 }

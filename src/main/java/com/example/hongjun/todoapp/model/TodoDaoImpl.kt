@@ -1,13 +1,21 @@
 package com.example.hongjun.todoapp.model
 
 import com.example.hongjun.todoapp.Application
+import com.example.hongjun.todoapp.dao.TodoDao
 import com.example.hongjun.todoapp.dto.Todo
+import javax.inject.Inject
 
 class TodoDaoImpl() {
 
-    var todoDao = Application.appDatabase.todoDao()
+    init {
+        Application.appComponent.inject(this)
+    }
+
+    @Inject
+    lateinit var todoDao : TodoDao
 
     fun findAllTodo() : List<Todo>{
+
         return todoDao.findAll()
     }
 
@@ -24,6 +32,7 @@ class TodoDaoImpl() {
     }
 
     fun findTodoById(id : Long) : Todo {
-        return todoDao.findTodoById(id) as Todo
+        return todoDao.findTodoById(id)
     }
+
 }
