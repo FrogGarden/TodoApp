@@ -4,7 +4,6 @@ package com.example.hongjun.todoapp.module
 import android.arch.persistence.room.Room
 import android.content.Context
 import com.example.hongjun.todoapp.AppDatabase
-import com.example.hongjun.todoapp.Application
 import com.example.hongjun.todoapp.dao.TodoDao
 import dagger.Module
 import dagger.Provides

@@ -9,13 +9,10 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.example.hongjun.todoapp.Application
 import com.example.hongjun.todoapp.R
 import com.example.hongjun.todoapp.dto.Todo
 import com.example.hongjun.todoapp.model.TodoDaoImpl
 import com.example.hongjun.todoapp.view.TodoActivity
-import io.reactivex.disposables.Disposable
-import io.reactivex.subjects.PublishSubject
 
 
 class MainAdapter(context: Context, items: List<Todo>) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {

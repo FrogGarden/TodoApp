@@ -2,12 +2,13 @@ package com.example.hongjun.todoapp.dao
 
 import android.arch.persistence.room.*
 import com.example.hongjun.todoapp.dto.Todo
+import io.reactivex.Flowable
 
 @Dao
 interface TodoDao {
 
     @Query("SELECT * FROM todo")
-    fun findAll() : List<Todo>
+    fun findAll() : Flowable<List<Todo>>
 
     @Query("SELECT * FROM todo WHERE id = :id")
     fun findTodoById(id : Long) : Todo

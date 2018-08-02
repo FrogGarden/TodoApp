@@ -1,19 +1,9 @@
 package com.example.hongjun.todoapp.viewmodel
 
-import android.annotation.SuppressLint
 import android.app.Activity
-import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModel
 import com.example.hongjun.todoapp.dto.Todo
 import com.example.hongjun.todoapp.model.TodoDaoImpl
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
-import io.reactivex.subjects.PublishSubject
-import kotlinx.android.synthetic.main.activity_todo.*
-import java.util.*
-import javax.inject.Inject
 
 class TodoViewModel(activity: Activity) : ViewModel(){
     private var activity = activity

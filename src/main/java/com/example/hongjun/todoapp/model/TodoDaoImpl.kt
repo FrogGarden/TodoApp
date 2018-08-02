@@ -3,24 +3,27 @@ package com.example.hongjun.todoapp.model
 import com.example.hongjun.todoapp.Application
 import com.example.hongjun.todoapp.dao.TodoDao
 import com.example.hongjun.todoapp.dto.Todo
+import io.reactivex.Flowable
 import javax.inject.Inject
 
 class TodoDaoImpl() {
 
-    init {
-        Application.appComponent.inject(this)
-    }
-
     @Inject
     lateinit var todoDao : TodoDao
 
-    fun findAllTodo() : List<Todo>{
+    init {
+        Application.appComponent.inject(this)
 
+    }
+
+    fun findAllTodo() : Flowable<List<Todo>> {
         return todoDao.findAll()
+
     }
 
     fun createTodo(todo : Todo){
         todoDao.create(todo)
+
     }
 
     fun deleteDoneTodo(){

@@ -12,6 +12,7 @@ abstract class AppDatabase : RoomDatabase() {
 
     abstract fun todoDao() : TodoDao
 
+    //test 위한 코드
     companion object {
         var TEST_MODE = false
         private val databaseName = "todo"

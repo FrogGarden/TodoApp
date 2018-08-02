@@ -23,11 +23,7 @@ class Application : Application(){
 
 
         lateinit var appComponent : AppComponent
-        //lateinit var appDatabase : AppDatabase
 
-        fun app() : com.example.hongjun.todoapp.Application{
-            return com.example.hongjun.todoapp.Application()
-        }
 
 
 
